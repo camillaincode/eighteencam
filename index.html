@@ -545,7 +545,7 @@
   </style>
 </head>
 <body>
-
+<audio id="bgMusic" src="Ben-E.-King-Stand-By-Me-_Audio_.mp3" preload="auto"></audio>
   <canvas id="stars"></canvas>
 
   <div class="glow"></div>
@@ -709,21 +709,25 @@
       h = canvas.height = window.innerHeight;
     });
 
-    function openInvite() {
-      const flap = document.getElementById('flap');
-      const landing = document.getElementById('landing');
-      const inviteCard = document.getElementById('inviteCard');
+function openInvite() {
+  const flap = document.getElementById('flap');
+  const landing = document.getElementById('landing');
+  const inviteCard = document.getElementById('inviteCard');
 
-      flap.style.transition = 'transform 1s ease';
-      flap.style.transformOrigin = 'top';
-      flap.style.transform = 'rotateX(180deg)';
+  const music = document.getElementById('bgMusic');
+  music.volume = 0.6;
+  music.play();
 
-      setTimeout(() => {
-        landing.classList.add('hidden');
-        inviteCard.classList.remove('hidden');
-        document.body.style.overflowY = 'auto';
-      }, 1100);
-    }
+  flap.style.transition = 'transform 1s ease';
+  flap.style.transformOrigin = 'top';
+  flap.style.transform = 'rotateX(180deg)';
+
+  setTimeout(() => {
+    landing.classList.add('hidden');
+    inviteCard.classList.remove('hidden');
+    document.body.style.overflowY = 'auto';
+  }, 1100);
+}
 
     function openDressCode() {
   document.getElementById('dressModal').classList.remove('hidden');
