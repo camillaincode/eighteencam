@@ -28,20 +28,28 @@
       --shadow: rgba(0,0,0,0.45);
     }
 
-    body {
-      min-height: 100vh;
-      overflow: hidden;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background:
-        radial-gradient(circle at top, rgba(255,255,255,0.08), transparent 30%),
-        radial-gradient(circle at bottom, rgba(134,216,156,0.12), transparent 35%),
-        linear-gradient(135deg, #06110c, #0b1e15, #12271d);
-      font-family: 'Cormorant Garamond', serif;
-      color: var(--ivory);
-      position: relative;
-    }
+ html,
+body {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  overscroll-behavior: none;
+  touch-action: manipulation;
+}
+
+body {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background:
+    radial-gradient(circle at top, rgba(255,255,255,0.08), transparent 30%),
+    radial-gradient(circle at bottom, rgba(134,216,156,0.12), transparent 35%),
+    linear-gradient(135deg, #06110c, #0b1e15, #12271d);
+  font-family: 'Cormorant Garamond', serif;
+  color: var(--ivory);
+  position: relative;
+}
 
     canvas {
       position: absolute;
@@ -292,7 +300,14 @@
       padding: 38px;
       box-shadow: 0 25px 60px rgba(0,0,0,0.4);
       animation: cardReveal 1.1s cubic-bezier(.18,.89,.32,1.2);
+      max-height: 95vh;
+      overflow-y: auto;
+      scrollbar-width: none;
+      -webkit-overflow-scrolling: touch;
     }
+    .invite-card::-webkit-scrollbar {
+  display: none;
+}
 
     .invite-top {
       display: flex;
@@ -542,6 +557,31 @@
       .info-row {
         gap: 28px;
       }
+      .photo-circle {
+  width: 130px;
+  height: 130px;
+}
+
+.led-number {
+  font-size: 4rem;
+}
+
+.camilla-name {
+  font-size: 2.7rem;
+}
+
+.big {
+  font-size: 1.5rem;
+}
+
+.info-box {
+  min-width: 90px;
+}
+
+.rsvp {
+  width: 56px;
+  height: 56px;
+}
     }
 </style>
   
@@ -724,11 +764,13 @@ function openInvite() {
   flap.style.transformOrigin = 'top';
   flap.style.transform = 'rotateX(180deg)';
 
-  setTimeout(() => {
-    landing.classList.add('hidden');
-    inviteCard.classList.remove('hidden');
-    document.body.style.overflowY = 'auto';
-  }, 1100);
+setTimeout(() => {
+  landing.classList.add('hidden');
+  inviteCard.classList.remove('hidden');
+
+  document.body.style.overflow = 'hidden';
+  document.documentElement.style.overflow = 'hidden';
+}, 1100);
 }
 
     function openDressCode() {
