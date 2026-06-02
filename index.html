@@ -5,13 +5,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>18 anni Camilla</title>
 
+  <link rel="stylesheet" href="style.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600&family=Cormorant+Garamond:wght@300;400;500;600&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Cardo:ital,wght@0,400;0,700;1,400&family=Fleur+De+Leah&family=Monsieur+La+Doulaise&family=Roboto+Flex:opsz,wght,XOPQ,XTRA,YOPQ,YTDE,YTFI,YTLC,YTUC@8..144,100..1000,96,468,79,-203,738,514,712&family=Rouge+Script&display=swap" rel="stylesheet">
 
-  <style>
-    * {
+<style>
+  * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
@@ -225,16 +226,11 @@
 
     .glow {
       position: absolute;
-      top: 50%;
-      left: 50%;
       width: 850px;
       height: 850px;
-      transform: translate(-50%, -50%);
       background: radial-gradient(circle, rgba(134,216,156,0.18), transparent 60%);
       z-index: 1;
-      pointer-events: none;
       filter: blur(30px);
-      will-change: transform, opacity;
       animation: pulse 6s infinite ease-in-out;
     }
 
@@ -547,116 +543,14 @@
         gap: 28px;
       }
     }
-
-    @media (max-width: 480px) {
-      body {
-        overflow-y: auto;
-      }
-
-      .glow {
-        width: 520px;
-        height: 520px;
-        filter: blur(22px);
-        opacity: 0.78;
-        animation-duration: 8s;
-      }
-
-      .container {
-        padding: 14px;
-      }
-
-      .instruction {
-        margin-top: 26px;
-        font-size: 1.05rem;
-      }
-
-      .invite-card {
-        width: 94vw;
-        padding: 22px 14px;
-        border-radius: 24px;
-      }
-
-      .photo-circle {
-        width: 132px;
-        height: 132px;
-      }
-
-      .led-number {
-        font-size: 3.4rem;
-      }
-
-      .camilla-name {
-        font-size: 2.6rem;
-      }
-
-      .info-row {
-        gap: 18px;
-      }
-
-      .info-box {
-        min-width: 100px;
-      }
-
-      .big {
-        font-size: 1.5rem;
-      }
-
-      .small,
-      .mini-btn {
-        font-size: 0.82rem;
-      }
-
-      .dresscode-btn {
-        margin-top: 26px;
-        width: 100%;
-        padding: 12px 16px;
-      }
-
-      .bottom-section {
-        margin-top: 30px;
-      }
-
-      .coming-title {
-        font-size: 1.7rem;
-      }
-
-      .rsvp-buttons {
-        gap: 14px;
-      }
-
-      .rsvp {
-        width: 56px;
-        height: 56px;
-        font-size: 1.45rem;
-      }
-
-      .dress-box {
-        width: 94vw;
-        padding: 26px 20px;
-        border-radius: 22px;
-      }
-
-      .dress-box h2 {
-        font-size: 1.7rem;
-      }
-
-      .dress-box p {
-        font-size: 1rem;
-      }
-    }
-
-    @media (prefers-reduced-motion: reduce) {
-      .glow {
-        animation: none;
-      }
-    }
-  </style>
+</style>
+  
 </head>
 <body>
 <audio id="bgMusic" src="stand-by-me.mp3" preload="auto"></audio>
-  <!-- <canvas id="stars"></canvas> -->
+  <canvas id="stars"></canvas>
 
-  <!-- <div class="glow"></div> -->
+  <div class="glow"></div>
 
   <div class="container" id="landing">
     <div class="envelope-wrapper" id="envelopeWrapper">
@@ -747,7 +641,7 @@
   <div class="dresscode-modal hidden" id="dressModal">
     <div class="dress-box">
       <h2>Dress Code</h2>
-      <p>
+     <p>
   Per creare un’atmosfera allegra e festosa e rendere speciale la serata,
   vi chiedo gentilmente di evitare il <span>verde smeraldo</span>
   e outfit completamente <span>neri</span>. ✨
